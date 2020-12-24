@@ -8,7 +8,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-python cli.py SEARCH_TERM COUNT
+python cli.py SEARCH_TERM COUNT STARTING_VIDEO_URL
 ```
 
 `SEARCH_TERM` that is logged with data
