@@ -4,7 +4,6 @@ import pandas as pd
 import os
 
 
-
 @click.command()
 @click.argument('search-term')
 @click.argument('count')
@@ -36,5 +35,6 @@ def run_search(search_term, count, starting_video_url, headless):
     recs.to_csv('recs.csv', index=False)
 
 
+    
 if __name__ == '__main__':
     run_search()
