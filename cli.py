@@ -8,12 +8,13 @@ import os
 @click.command()
 @click.argument('search-term')
 @click.argument('count')
-def run_search(search_term, count):
+@click.argument('starting-video-url', default="https://www.youtube.com/watch?v=U5R8qWCBA2M")
+def run_search(search_term, count, starting_video_url):
 
     engine = PersonaEngine(headless=True)
     with engine.persona() as persona:
         # persona.run("youtube:search?{}".format(search_term))
-        persona.run("https://www.youtube.com/watch?v=U5R8qWCBA2M")
+        persona.run(starting_video_url)
         persona.run("youtube:next_up#{}".format(count))
 
         history = persona.history.to_df()
