@@ -9,9 +9,10 @@ import os
 @click.argument('search-term')
 @click.argument('count')
 @click.argument('starting-video-url', default="https://www.youtube.com/watch?v=U5R8qWCBA2M")
-def run_search(search_term, count, starting_video_url):
+@click.option('--headless', is_flag=True)
+def run_search(search_term, count, starting_video_url, headless):
 
-    engine = PersonaEngine(headless=True)
+    engine = PersonaEngine(headless=headless)
     with engine.persona() as persona:
         # persona.run("youtube:search?{}".format(search_term))
         persona.run(starting_video_url)
